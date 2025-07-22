@@ -1,0 +1,36 @@
+/* Quick Actions */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    background: var(--gradient-light);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.action-btn:hover {
+    transform: scale(1.05);
+    background: var(--gradient);
+    color: white;
+}
+
+.action-btn:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.action-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}

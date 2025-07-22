@@ -1,0 +1,41 @@
+/* Focus Section */
+.focus-section {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.focus-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.focus-question {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.focus-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin: 0 auto;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.focus-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.2);
+}

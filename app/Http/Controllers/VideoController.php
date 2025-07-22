@@ -11,21 +11,30 @@ use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-        $videos = Video::orderBy('created_at', 'desc')->paginate(5);
-        return view('videos/index', ['videos' => $videos]);
+        $role = $request->query('role', 'technicien');
+
+        $videos = Video::where('role', $role)
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+
+        return view('videos/index', [
+            'videos' => $videos,
+            'role' => $role
+        ]);
     }
 
     public function show($id): View
     {
         $video = Video::findOrFail($id);
 
-        return view('videos/show',['video' => $video]);
+        return view('videos/show', ['video' => $video]);
     }
-    public function create(): View
+    public function create(Request $request): View
     {
-        return view('videos/create');
+        $role = $request->query('role', 'technicien');
+        return view('videos/create', ['role' => $role]);
     }
 
     public function edit($id): View
@@ -38,7 +47,7 @@ class VideoController extends Controller
     {
         $data = $req->validated();
 
-        
+
 
         $video = Video::create($data);
         return redirect()->route('admin.video.show', ['id' => $video->id]);
@@ -48,7 +57,7 @@ class VideoController extends Controller
     {
         $data = $req->validated();
 
-        
+
 
         $video->update($data);
 
@@ -71,13 +80,11 @@ class VideoController extends Controller
 
     public function delete(Video $video)
     {
-        
+
         $video->delete();
 
         return [
             'isSuccess' => true
         ];
     }
-
-    
 }

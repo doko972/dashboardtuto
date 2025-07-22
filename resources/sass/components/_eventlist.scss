@@ -1,0 +1,45 @@
+/* Events List */
+.event-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-left: 4px solid var(--primary);
+    background: var(--bg-secondary);
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.event-item:hover {
+    background: var(--gradient-light);
+    transform: translateX(5px);
+}
+
+.event-date {
+    background: var(--gradient);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-right: 1rem;
+    min-width: 60px;
+}
+
+.event-date .day {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.event-date .month {
+    font-size: 0.8rem;
+}
+
+.event-info h4 {
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.event-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}

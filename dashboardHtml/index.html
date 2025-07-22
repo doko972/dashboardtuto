@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateforme | HRTélécoms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="pink" data-mode="light">
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <div class="container">
+        <main class="main-content" role="main">
+            <header class="header" role="banner">
+                <button class="mobile-menu-toggle" onclick="toggleSidebar()"
+                    aria-label="Toggle navigation menu">☰</button>
+
+                <div class="header-brand">
+                    <h1 class="brand-title">HRTélécoms</h1>
+                    <p class="brand-subtitle">Documentations</p>
+                </div>
+                <div class="header-actions">
+                    <div class="theme-selector">
+                        <button class="theme-toggle" onclick="toggleThemeDropdown()" id="themeToggle"
+                            aria-label="Theme settings" aria-expanded="false" aria-haspopup="true">🎨</button>
+                        <div class="theme-dropdown" id="themeDropdown" role="menu" aria-labelledby="themeToggle">
+                            <div class="theme-options" role="group" aria-label="Color themes">
+                                <button class="theme-option pink active" onclick="setTheme('rose')" role="menuitem"
+                                    aria-label="Pink theme" tabindex="0"></button>
+                                <button class="theme-option blue" onclick="setTheme('bleu')" role="menuitem"
+                                    aria-label="Blue theme" tabindex="-1"></button>
+                                <button class="theme-option green" onclick="setTheme('vert')" role="menuitem"
+                                    aria-label="Green theme" tabindex="-1"></button>
+                                <button class="theme-option purple" onclick="setTheme('violet')" role="menuitem"
+                                    aria-label="Purple theme" tabindex="-1"></button>
+
+                            </div>
+                            <div class="mode-toggle" role="group" aria-label="Display mode">
+                                <button class="mode-btn active" onclick="setMode('clair')" role="menuitem"
+                                    aria-pressed="true">☀️ Clair</button>
+                                <button class="mode-btn" onclick="setMode('sombre')" role="menuitem"
+                                    aria-pressed="false">🌙 Sombre</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-profile" tabindex="0" role="button" aria-label="User profile">
+                        <div class="user-avatar" aria-hidden="true">D</div>
+                        <div class="user-info">
+                            <h3>Utilisateur</h3>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="mode-tabs" role="tablist" aria-label="Workspace modes">
+                <!-- <button class="mode-tab active" onclick="switchMode('dashboard')" role="tab" aria-selected="true"
+                    aria-controls="dashboard-mode" id="dashboard-tab">
+                    🏠 Dashboard
+                </button> -->
+                <button class="mode-tab" onclick="switchMode('technique')" role="tab" aria-selected="false"
+                    aria-controls="technique-mode" id="technique-tab">
+                    📁 Technique
+                </button>
+                <button class="mode-tab" onclick="switchMode('adv')" role="tab" aria-selected="false"
+                    aria-controls="adv-mode" id="adv-tab">
+                    📁 ADV
+                </button>
+                <button class="mode-tab" onclick="switchMode('comptabilite')" role="tab" aria-selected="false"
+                    aria-controls="comptabilite-mode" id="comptabilite-tab">
+                    📁 Comptabilité
+                </button>
+                <button class="mode-tab" onclick="switchMode('commerciaux')" role="tab" aria-selected="false"
+                    aria-controls="commerciaux-mode" id="commerciaux-tab">
+                    📁 Commerciaux
+                </button>
+            </div>
+
+            <div class="dashboard">
+                <!-- technique Mode -->
+                <div class="mode-content" id="technique-mode" role="tabpanel" aria-labelledby="technique-tab">
+                    <div class="learning-grid fade-in">
+
+
+                        <section class="resource-category" aria-labelledby="youtube-learning-title">
+                            <div class="category-header">
+                                <div class="category-icon" aria-hidden="true">📺</div>
+                                <div>
+                                    <h3 class="category-title" id="youtube-learning-title">Tuto Vidéo</h3>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Plateforme Vidéo
+                                    </p>
+                                </div>
+                            </div>
+                            <a href="https://www.youtube.com/playlist?list=PLZlA0Gpn_vH_NT5zPVp18nGe_W9LqBDQK"
+                                target="_blank" class="resource-item" aria-label="Advanced React Patterns playlist">
+                                <span class="resource-icon" aria-hidden="true">⚛️</span>
+                                <div class="resource-info">
+                                    <h4>Advanced React Patterns</h4>
+                                    <p>20 videos • 12 hours</p>
+                                </div>
+                            </a>
+                            <a href="https://www.youtube.com/playlist?list=PLillGF-RfqbZ2ybcoD2OaabW2P7Ws8CWu"
+                                target="_blank" class="resource-item" aria-label="Node.js Masterclass playlist">
+                                <span class="resource-icon" aria-hidden="true">🟢</span>
+                                <div class="resource-info">
+                                    <h4>Node.js Masterclass</h4>
+                                    <p>25 videos • 15 hours</p>
+                                </div>
+                            </a>
+                            <div class="add-resource" aria-label="Add new YouTube video">
+                                <span class="add-icon" aria-hidden="true">➕</span>
+                                <span>Add YouTube Video/Playlist</span>
+                            </div>
+                        </section>
+
+
+                        <section class="resource-category" aria-labelledby="documentation-title">
+                            <div class="category-header">
+                                <div class="category-icon" aria-hidden="true">📚</div>
+                                <div>
+                                    <h3 class="category-title" id="documentation-title">Documentation</h3>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Documents technique &
+                                        references</p>
+                                </div>
+                            </div>
+                            <a href="https://react.dev" target="_blank" class="resource-item"
+                                aria-label="React 18 Documentation">
+                                <span class="resource-icon" aria-hidden="true">⚛️</span>
+                                <div class="resource-info">
+                                    <h4>React 18 Documentation</h4>
+                                    <p>Official React docs & new features</p>
+                                </div>
+                            </a>
+                            <a href="https://www.typescriptlang.org/docs/" target="_blank" class="resource-item"
+                                aria-label="TypeScript Handbook">
+                                <span class="resource-icon" aria-hidden="true">🟦</span>
+                                <div class="resource-info">
+                                    <h4>TypeScript Handbook</h4>
+                                    <p>Complete TypeScript reference</p>
+                                </div>
+                            </a>
+                            <a href="https://nextjs.org/docs" target="_blank" class="resource-item"
+                                aria-label="Next.js Documentation">
+                                <span class="resource-icon" aria-hidden="true">🚀</span>
+                                <div class="resource-info">
+                                    <h4>Next.js Documentation</h4>
+                                    <p>Full-stack React framework guide</p>
+                                </div>
+                            </a>
+                            <a href="https://tailwindcss.com/docs" target="_blank" class="resource-item"
+                                aria-label="Tailwind CSS Documentation">
+                                <span class="resource-icon" aria-hidden="true">🎨</span>
+                                <div class="resource-info">
+                                    <h4>Tailwind CSS Docs</h4>
+                                    <p>Utility-first CSS framework</p>
+                                </div>
+                            </a>
+                            <div class="add-resource" aria-label="Add new documentation">
+                                <span class="add-icon" aria-hidden="true">➕</span>
+                                <span>Add Documentation</span>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- adv Mode -->
+                <div class="mode-content" id="adv-mode" role="tabpanel" aria-labelledby="adv-tab">
+                    <div class="learning-grid fade-in">
+
+                        <section class="resource-category" aria-labelledby="youtube-learning-title">
+                            <div class="category-header">
+                                <div class="category-icon" aria-hidden="true">📺</div>
+                                <div>
+                                    <h3 class="category-title" id="youtube-learning-title">Tuto Vidéo</h3>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Plateforme Vidéo
+                                    </p>
+                                </div>
+                            </div>
+                            <a href="https://www.youtube.com/playlist?list=PLZlA0Gpn_vH_NT5zPVp18nGe_W9LqBDQK"
+                                target="_blank" class="resource-item" aria-label="Advanced React Patterns playlist">
+                                <span class="resource-icon" aria-hidden="true">⚛️</span>
+                                <div class="resource-info">
+                                    <h4>Advanced React Patterns</h4>
+                                    <p>20 videos • 12 hours</p>
+                                </div>
+                            </a>
+                            <a href="https://www.youtube.com/playlist?list=PLillGF-RfqbZ2ybcoD2OaabW2P7Ws8CWu"
+                                target="_blank" class="resource-item" aria-label="Node.js Masterclass playlist">
+                                <span class="resource-icon" aria-hidden="true">🟢</span>
+                                <div class="resource-info">
+                                    <h4>Node.js Masterclass</h4>
+                                    <p>25 videos • 15 hours</p>
+                                </div>
+                            </a>
+                            <div class="add-resource" aria-label="Add new YouTube video">
+                                <span class="add-icon" aria-hidden="true">➕</span>
+                                <span>Add YouTube Video/Playlist</span>
+                            </div>
+                        </section>
+
+
+                        <section class="resource-category" aria-labelledby="documentation-title">
+                            <div class="category-header">
+                                <div class="category-icon" aria-hidden="true">📚</div>
+                                <div>
+                                    <h3 class="category-title" id="documentation-title">Documentation</h3>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Documents technique &
+                                        references</p>
+                                </div>
+                            </div>
+                            <a href="https://react.dev" target="_blank" class="resource-item"
+                                aria-label="React 18 Documentation">
+                                <span class="resource-icon" aria-hidden="true">⚛️</span>
+                                <div class="resource-info">
+                                    <h4>React 18 Documentation</h4>
+                                    <p>Official React docs & new features</p>
+                                </div>
+                            </a>
+                            <a href="https://www.typescriptlang.org/docs/" target="_blank" class="resource-item"
+                                aria-label="TypeScript Handbook">
+                                <span class="resource-icon" aria-hidden="true">🟦</span>
+                                <div class="resource-info">
+                                    <h4>TypeScript Handbook</h4>
+                                    <p>Complete TypeScript reference</p>
+                                </div>
+                            </a>
+                            <a href="https://nextjs.org/docs" target="_blank" class="resource-item"
+                                aria-label="Next.js Documentation">
+                                <span class="resource-icon" aria-hidden="true">🚀</span>
+                                <div class="resource-info">
+                                    <h4>Next.js Documentation</h4>
+                                    <p>Full-stack React framework guide</p>
+                                </div>
+                            </a>
+                            <a href="https://tailwindcss.com/docs" target="_blank" class="resource-item"
+                                aria-label="Tailwind CSS Documentation">
+                                <span class="resource-icon" aria-hidden="true">🎨</span>
+                                <div class="resource-info">
+                                    <h4>Tailwind CSS Docs</h4>
+                                    <p>Utility-first CSS framework</p>
+                                </div>
+                            </a>
+                            <div class="add-resource" aria-label="Add new documentation">
+                                <span class="add-icon" aria-hidden="true">➕</span>
+                                <span>Add Documentation</span>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- comptabilite Mode -->
+                <div class="mode-content" id="comptabilite-mode" role="tabpanel" aria-labelledby="comptabilite-tab">
+                    <div class="learning-grid fade-in">
+
+
+                        <section class="resource-category" aria-labelledby="youtube-learning-title">
+                            <div class="category-header">
+                                <div class="category-icon" aria-hidden="true">📺</div>
+                                <div>
+                                    <h3 class="category-title" id="youtube-learning-title">Tuto Vidéo</h3>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Plateforme Vidéo
+                                    </p>
+                                </div>
+                            </div>
+                            <a href="https://www.youtube.com/playlist?list=PLZlA0Gpn_vH_NT5zPVp18nGe_W9LqBDQK"
+                                target="_blank" class="resource-item" aria-label="Advanced React Patterns playlist">
+                                <span class="resource-icon" aria-hidden="true">⚛️</span>
+                                <div class="resource-info">
+                                    <h4>Advanced React Patterns</h4>
+                                    <p>20 videos • 12 hours</p>
+                                </div>
+                            </a>
+                            <a href="https://www.youtube.com/playlist?list=PLillGF-RfqbZ2ybcoD2OaabW2P7Ws8CWu"
+                                target="_blank" class="resource-item" aria-label="Node.js Masterclass playlist">
+                                <span class="resource-icon" aria-hidden="true">🟢</span>
+                                <div class="resource-info">
+                                    <h4>Node.js Masterclass</h4>
+                                    <p>25 videos • 15 hours</p>
+                                </div>
+                            </a>
+                            <div class="add-resource" aria-label="Add new YouTube video">
+                                <span class="add-icon" aria-hidden="true">➕</span>
+                                <span>Add YouTube Video/Playlist</span>
+                            </div>
+                        </section>
+
+
+                        <section class="resource-category" aria-labelledby="documentation-title">
+                            <div class="category-header">
+                                <div class="category-icon" aria-hidden="true">📚</div>
+                                <div>
+                                    <h3 class="category-title" id="documentation-title">Documentation</h3>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Documents technique &
+                                        references</p>
+                                </div>
+                            </div>
+                            <a href="https://react.dev" target="_blank" class="resource-item"
+                                aria-label="React 18 Documentation">
+                                <span class="resource-icon" aria-hidden="true">⚛️</span>
+                                <div class="resource-info">
+                                    <h4>React 18 Documentation</h4>
+                                    <p>Official React docs & new features</p>
+                                </div>
+                            </a>
+                            <a href="https://www.typescriptlang.org/docs/" target="_blank" class="resource-item"
+                                aria-label="TypeScript Handbook">
+                                <span class="resource-icon" aria-hidden="true">🟦</span>
+                                <div class="resource-info">
+                                    <h4>TypeScript Handbook</h4>
+                                    <p>Complete TypeScript reference</p>
+                                </div>
+                            </a>
+                            <a href="https://nextjs.org/docs" target="_blank" class="resource-item"
+                                aria-label="Next.js Documentation">
+                                <span class="resource-icon" aria-hidden="true">🚀</span>
+                                <div class="resource-info">
+                                    <h4>Next.js Documentation</h4>
+                                    <p>Full-stack React framework guide</p>
+                                </div>
+                            </a>
+                            <a href="https://tailwindcss.com/docs" target="_blank" class="resource-item"
+                                aria-label="Tailwind CSS Documentation">
+                                <span class="resource-icon" aria-hidden="true">🎨</span>
+                                <div class="resource-info">
+                                    <h4>Tailwind CSS Docs</h4>
+                                    <p>Utility-first CSS framework</p>
+                                </div>
+                            </a>
+                            <div class="add-resource" aria-label="Add new documentation">
+                                <span class="add-icon" aria-hidden="true">➕</span>
+                                <span>Add Documentation</span>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- Commerciaux Mode -->
+                <div class="mode-content" id="commerciaux-mode" role="tabpanel" aria-labelledby="commerciaux-tab">
+                    <div class="learning-grid fade-in">
+
+
+                        <section class="resource-category" aria-labelledby="youtube-learning-title">
+                            <div class="category-header">
+                                <div class="category-icon" aria-hidden="true">📺</div>
+                                <div>
+                                    <h3 class="category-title" id="youtube-learning-title">Tuto Vidéo</h3>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Plateforme Vidéo
+                                    </p>
+                                </div>
+                            </div>
+                            <a href="#"
+                                target="_blank" class="resource-item" aria-label="Advanced React Patterns playlist">
+                                <span class="resource-icon" aria-hidden="true">⚛️</span>
+                                <div class="resource-info">
+                                    <h4>Advanced React Patterns</h4>
+                                    <p>20 videos • 12 hours</p>
+                                </div>
+                            </a>
+                            <a href="#"
+                                target="_blank" class="resource-item" aria-label="Node.js Masterclass playlist">
+                                <span class="resource-icon" aria-hidden="true">🟢</span>
+                                <div class="resource-info">
+                                    <h4>Node.js Masterclass</h4>
+                                    <p>25 videos • 15 hours</p>
+                                </div>
+                            </a>
+                            <div class="add-resource" aria-label="Add new YouTube video">
+                                <span class="add-icon" aria-hidden="true">➕</span>
+                                <span>Add YouTube Video/Playlist</span>
+                            </div>
+                        </section>
+
+
+                        <section class="resource-category" aria-labelledby="documentation-title">
+                            <div class="category-header">
+                                <div class="category-icon" aria-hidden="true">📚</div>
+                                <div>
+                                    <h3 class="category-title" id="documentation-title">Documentation</h3>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Documents technique &
+                                        references</p>
+                                </div>
+                            </div>
+                            <a href="#" target="_blank" class="resource-item"
+                                aria-label="React 18 Documentation">
+                                <span class="resource-icon" aria-hidden="true">⚛️</span>
+                                <div class="resource-info">
+                                    <h4>React 18 Documentation</h4>
+                                    <p>Official React docs & new features</p>
+                                </div>
+                            </a>
+                            <a href="#" target="_blank" class="resource-item"
+                                aria-label="TypeScript Handbook">
+                                <span class="resource-icon" aria-hidden="true">🟦</span>
+                                <div class="resource-info">
+                                    <h4>TypeScript Handbook</h4>
+                                    <p>Complete TypeScript reference</p>
+                                </div>
+                            </a>
+                            <a href="#" target="_blank" class="resource-item"
+                                aria-label="Next.js Documentation">
+                                <span class="resource-icon" aria-hidden="true">🚀</span>
+                                <div class="resource-info">
+                                    <h4>Next.js Documentation</h4>
+                                    <p>Full-stack React framework guide</p>
+                                </div>
+                            </a>
+                            <a href="#" target="_blank" class="resource-item"
+                                aria-label="Tailwind CSS Documentation">
+                                <span class="resource-icon" aria-hidden="true">🎨</span>
+                                <div class="resource-info">
+                                    <h4>Tailwind CSS Docs</h4>
+                                    <p>Utility-first CSS framework</p>
+                                </div>
+                            </a>
+                            <div class="add-resource" aria-label="Add new documentation">
+                                <span class="add-icon" aria-hidden="true">➕</span>
+                                <span>Add Documentation</span>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </main>
+    </div>
+
+
+    <footer class="footer" role="contentinfo">
+        <p>Built by <a href="#">Doko972 </a> ✨</p>
+    </footer>
+
+    <script src="script.js">
+
+    </script>
+</body>
+
+</html>

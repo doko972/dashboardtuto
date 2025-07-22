@@ -1,8 +1,7 @@
-$background: #0a0a0a;
-$text-color: #e2e2e2;
-
-body {
-  background-color: $background;
-  color: $text-color;
-  font-family: 'Cinzel', serif;
-}
+@use 'pages/dashboard';
+@use 'abstracts/variables';
+@use 'base/reset';
+@use 'layout/header';
+@use 'layout/nav';
+@use 'layout/footer';
+@use 'components/cards';
