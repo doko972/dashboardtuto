@@ -239,13 +239,13 @@ body {
     pointer-events: none;
 }
 
-/* .header-actions {
+.header-actions {
     display: flex;
     align-items: center;
     gap: 1rem;
-} */
+}
 
-/* Theme Selector
+/* Theme Selector */
 .theme-selector {
     position: relative;
 }
@@ -411,7 +411,7 @@ body {
 .user-info p {
     font-size: 0.8rem;
     color: var(--text-secondary);
-} */
+}
 
 /* Mode Tabs */
 .mode-tabs {
@@ -1787,7 +1787,7 @@ body {
 }
 
 /* Mobile Menu Toggle */
-/* .mobile-menu-toggle {
+.mobile-menu-toggle {
     display: none;
     background: none;
     border: none;
@@ -1805,7 +1805,7 @@ body {
     .mobile-menu-toggle {
         display: block;
     }
-} */
+}
 
 /* Notification Badge */
 .notification-badge {
@@ -1846,7 +1846,7 @@ body {
     }
 }
 
-/* Screen Reader Only
+/* Screen Reader Only */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -1905,4 +1905,4 @@ body {
     font-size: 1.25rem;
     margin: 0;
     color: var(--text-secondary);
-} */
+}
